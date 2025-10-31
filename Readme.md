@@ -1,5 +1,5 @@
 # Splunk Basics – HTTP Log Analysis  
-*Day 22 of  #30DaysOfSOC Challenge*
+*Day 21 of  #30DaysOfSOC Challenge*
 
 ---
 
