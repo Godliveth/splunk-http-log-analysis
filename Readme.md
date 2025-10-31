@@ -31,6 +31,11 @@ In this lab, I:
 | **Data Source** | [HTTP Log file](https://raw.githubusercontent.com/0xrajneesh/30-Days-SOC-Challenge-Beginner/refs/heads/main/http_logs.json) |
 
 ---
+# 📂Data Set
+
+📥 [Download synthetic_zeek_http.json](./synthetic_zeek_http.json)).
+
+---
 
 ## ⚙️ Steps to Upload HTTP Log into Splunk  
 
@@ -40,9 +45,6 @@ In this lab, I:
 4. Choose **Index** → `"main"` or  `"http_lab"`.  
 5. Complete the upload and verify indexing via **Search & Reporting**.
 
-# 📂Data Set
-
-📥 [Download synthetic_zeek_http.json](./synthetic_zeek_http.json)).
 
 ---
 
