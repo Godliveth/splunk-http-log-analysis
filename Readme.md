@@ -1,5 +1,5 @@
-# Day 22 : Splunk Basics – HTTP Log Analysis  
-*Part of the #30DaysOfSOC Challenge*
+# Splunk Basics – HTTP Log Analysis  
+*Day 22 of  #30DaysOfSOC Challenge*
 
 ---
 
@@ -27,7 +27,7 @@ In this lab, I:
 | **Tool** | Splunk Enterprise |
 | **Dataset** | Synthetic Zeek HTTP Logs (JSON format) |
 | **Index** | `"main"`|
-| **Sourcetype** | `json` or `zeek:http` |
+| **Sourcetype** | `_json` or `zeek:http` |
 | **Data Source** | [HTTP Log file](https://raw.githubusercontent.com/0xrajneesh/30-Days-SOC-Challenge-Beginner/refs/heads/main/http_logs.json) |
 
 ---
@@ -36,7 +36,7 @@ In this lab, I:
 
 1. Go to **Settings → Add Data**.  
 2. Choose **Upload**, and select `synthetic_zeek_http.json`.  
-3. Set **Source type** to `json` (or create `zeek:http`).  
+3. Set **Source type** to `_json` (or create `zeek:http`).  
 4. Choose **Index** → `"main"` or  `"http_lab"`.  
 5. Complete the upload and verify indexing via **Search & Reporting**.
 
@@ -52,7 +52,7 @@ In this lab, I:
 
 spl                                                    
 
-index="main" sourcetype="json"
+index="main" sourcetype="_json"
 | stats count by "id.orig_h"
 | sort -count
 | head 10
@@ -63,7 +63,7 @@ index="main" sourcetype="json"
 
 spl
 
-index="main"sourcetype="json" status_code>=500 status_code<600
+index="main"sourcetype="_json" status_code>=500 status_code<600
 | stats count as server_errors
 
 ---
@@ -72,7 +72,7 @@ index="main"sourcetype="json" status_code>=500 status_code<600
 
 spl
 
-index="main" sourcetype="json" user_agent IN ("sqlmap/1.5.1", "curl/7.68.0", "python-requests/2.25.1", "botnet-checker/1.0")
+index="main" sourcetype="_json" user_agent IN ("sqlmap/1.5.1", "curl/7.68.0", "python-requests/2.25.1", "botnet-checker/1.0")
 | stats count by user_agent
 
 
@@ -82,7 +82,7 @@ index="main" sourcetype="json" user_agent IN ("sqlmap/1.5.1", "curl/7.68.0", "py
 
 spl
 
-index="main" sourcetype="json" resp_body_len>500000
+index="main" sourcetype="_json" resp_body_len>500000
 | table ts "id.orig_h" "id.resp_h" uri resp_body_len
 | sort -resp_body_len
 
@@ -91,8 +91,8 @@ index="main" sourcetype="json" resp_body_len>500000
 ## 📸 Screenshots
 All screenshots from this analysis are stored in the folder below 👇
 
-📂 🔗 View Screenshot Folder
 
+📸 **[🔗 View Screenshot Folder](./screenshots)**
 
 ---
 
@@ -129,3 +129,4 @@ Reinforced core SOC analytical skills using Splunk SPL.
 SOC Analyst Trainee 
 
 🔗 LinkedIn
+www.linkedin.com/in/godliveth-madu-1771b6251
